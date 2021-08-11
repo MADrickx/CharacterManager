@@ -1,0 +1,22 @@
+.l-footer{
+    width: 100%;
+    margin: 3rem;
+}
+
+.l-footer-button{
+    text-align: center;
+    .btn-add{
+        margin: auto;
+        display: inline-block;
+        @extend .btn-link;
+        &:link,&:visited,&:focus{
+            background-color: $btn-color-1;
+            border: none;
+            font-size: 1.2rem;
+            font-style: normal;
+            padding: 1rem 3rem;
+            text-align: center;
+            box-shadow: 7px 11px 35px 2px rgba(0,0,0,0.93);
+        }
+    }
+}

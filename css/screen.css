@@ -1,0 +1,202 @@
+html {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #4b4ea2;
+  background: linear-gradient(90deg, #4b4ea2 0%, #e14444 100%);
+}
+
+.btn-link:link, .l-footer-button .btn-add:link, .btn-link:visited, .l-footer-button .btn-add:visited, .btn-link:focus, .l-footer-button .btn-add:focus {
+  border: 1px solid white;
+  border-radius: 15px;
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-style: italic;
+}
+.btn-link:hover, .l-footer-button .btn-add:hover {
+  background-color: white;
+  color: #4B4EA2;
+}
+
+.l-header {
+  padding: 1rem;
+  color: white;
+}
+
+.l-header-heading {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid white;
+}
+
+.l-header-heading-content h1 {
+  font-family: "Permanent Marker", sans-serif;
+}
+
+.l-header-search label {
+  display: none;
+}
+.l-header-search input {
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .l-header-heading {
+    max-width: 1400px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.l-footer {
+  width: 100%;
+  margin: 3rem;
+}
+
+.l-footer-button {
+  text-align: center;
+}
+.l-footer-button .btn-add {
+  margin: auto;
+  display: inline-block;
+}
+.l-footer-button .btn-add:link, .l-footer-button .btn-add:visited, .l-footer-button .btn-add:focus {
+  background-color: #4B7CFB;
+  border: none;
+  font-size: 1.2rem;
+  font-style: normal;
+  padding: 1rem 3rem;
+  text-align: center;
+  box-shadow: 7px 11px 35px 2px rgba(0, 0, 0, 0.93);
+}
+
+.c-main-cards {
+  width: 100%;
+}
+
+.c-main-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.c-main-cards__card {
+  background-color: #363333;
+  height: 350px;
+  width: 250px;
+  margin: 1rem;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.c-main-cards__card h1 {
+  font-family: "Permanent Marker", sans-serif;
+  color: white;
+  font-size: 1rem;
+}
+.c-main-cards__card p {
+  color: lightgrey;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.card__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .c-main-cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 960px) {
+  .c-main-cards-container {
+    max-width: 1400px;
+  }
+  .c-main-cards-container .c-main-cards__card {
+    margin: 1rem 2rem;
+  }
+}
+.c-main-modals {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.c-main-modals-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.modal-addChar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #363333;
+  padding: 1rem;
+}
+.modal-addChar form {
+  width: 100%;
+}
+.modal-addChar form input {
+  width: 100%;
+  height: 2rem;
+  background-color: gray;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+}
+.modal-addChar form div:first-of-type input {
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 1.6rem;
+  color: white;
+  padding-left: 2rem;
+}
+.modal-addChar form div:nth-of-type(2) input {
+  font-size: 0.7rem;
+  font-style: italic;
+  font-family: "Roboto", sans-serif;
+  color: lightgray;
+  padding-left: 2rem;
+}
+.modal-addChar form div:last-of-type input {
+  height: 6rem;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: lightgray;
+  padding-left: 2rem;
+}
+.modal-addChar form .relative-container {
+  position: relative;
+}
+.modal-addChar form .input-char-count {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/*# sourceMappingURL=screen.css.map */
