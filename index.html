@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang=fr">
+
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +26,48 @@
         </div>
     </header>
     <main class='l-main'>
+        <section class="c-main-modals">
+            <div class="c-main-modals-container">
+                <div class="modal-addChar">
+                    <figure>
+                        <img src="#" alt="preview">
+                        <button>Upload Image</button>
+                    </figure>
+                    <form action="#" method="GET">
+                        <div class="form-inputs">
+                            <div class="relative-container">
+                                <input id="name" type="text">
+                                <span class="input-char-count"></span>
+                            </div>
+                            <div class="relative-container">
+                                <input id="origin" type="text">
+                                <span class="input-char-count">N'importe quoi</span>
+                            </div>
+                            <div class="description-container">
+                                <input id="description" type="textarea">
+                                <span class="input-char-count"></span>
+                                <div>
+                                    <div class="descriptions-btn-container">
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                        <span class="description-btn"></span>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <div>
+                            <button id="btn-save">Save changes</button>
+                            <button id="btn-delete">Delete character</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
         <section class="c-main-cards">
             <div class="c-main-cards-container">
                 <div class="c-main-cards__card">
@@ -112,6 +155,7 @@
     </main>
     <footer class='l-footer'>
         <div class="l-footer-button">
+            <a id="addChar" href="#" class="btn-add">Add a new character to the collection</a>
             <a href="#" class="btn-add">Add a new character to the collection</a>
         </div>
     </footer>
