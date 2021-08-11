@@ -102,6 +102,7 @@ body {
   box-sizing: border-box;
   padding: 1.5rem 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
 }
 .c-main-cards__card h1 {
   font-family: "Permanent Marker", sans-serif;
@@ -137,6 +138,7 @@ body {
     margin: 1rem 2rem;
   }
 }
+
 .c-main-modals {
   width: 100vw;
   height: 100vh;
@@ -198,5 +200,6 @@ body {
   bottom: 1rem;
   right: 1rem;
 }
+
 
 /*# sourceMappingURL=screen.css.map */
