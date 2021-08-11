@@ -47,8 +47,10 @@ body {
   display: none;
 }
 .l-header-search input {
-  border-radius: 5px;
+  border-radius: 8px;
   margin: 1rem;
+  padding: 0.5rem;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -60,6 +62,7 @@ body {
 }
 .l-footer {
   width: 100%;
+  margin: 3rem;
 }
 
 .l-footer-button {
@@ -76,6 +79,7 @@ body {
   font-style: normal;
   padding: 1rem 3rem;
   text-align: center;
+  box-shadow: 7px 11px 35px 2px rgba(0, 0, 0, 0.93);
 }
 
 .c-main-cards {
