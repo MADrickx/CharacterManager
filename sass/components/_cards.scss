@@ -1,0 +1,57 @@
+//smartphone
+.c-main-cards{
+
+    width: 100%;
+}
+
+.c-main-cards-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.c-main-cards__card{
+    background-color: $contrast-color;
+    height: 350px;
+    width: 250px;
+    margin: 1rem;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 1.5rem 1rem;
+    h1{
+        font-family: $font-name-2;
+        color: white;
+        font-size: 1rem;
+    }
+    p{
+        color: lightgrey;
+        font-size: 0.8rem;
+        font-weight: 200;
+    }
+}
+
+.card__container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+//tablette
+@media screen and (min-width:768px){
+    .c-main-cards-container{
+        flex-direction:row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
+//pc
+@media screen and (min-width:960px){
+    .c-main-cards-container{
+        max-width: 1400px;
+        .c-main-cards__card{
+            margin:1rem 2rem;
+        }
+    }
+}

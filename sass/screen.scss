@@ -1,8 +1,13 @@
 @import 'abstract/variables';
+
+@import 'layout/html';
+@import 'layout/body';
+@import 'layout/btn';
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/footer';
-@import 'layout/btn';
+
+@import 'components/cards'
 
 
 
@@ -26,10 +31,3 @@
 
 
 
-
-
-
-html{
-    font-size: 16px;
-    font-family: $font-name;
-}
