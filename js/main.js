@@ -19,15 +19,59 @@ window.onload = async function getChar(){
     } catch(error){
         console.log(error)
     }
-    
 }
 
+const readURL = file => {
+    return new Promise((res, rej) => {
+        const reader = new FileReader();
+        reader.onload = e => res(e.target.result);
+        reader.onerror = e => rej(e);
+        reader.readAsDataURL(file);
+    });
+};
 
 document.getElementById("addChar").addEventListener("click",async() => {
     modalsContainer.classList.remove('hidden');
     let img = document.getElementById('image');
     let preview = document.getElementById('preview');
+    console.log(img)
+    let inputs = Array.from(document.getElementsByTagName("input"))
+    console.log(inputs)
+    var url = ""
+    const test = await inputs[0].addEventListener("change", async (ev) => {
+        const file = ev.target.files[0];
+        url = await readURL(file)
+        preview.src=url
+    })
+    document.getElementById("btn-save").addEventListener("click", async() => {
+        try {
+            let name = inputs[1].value
+            let shortDescription = inputs[2].value
+            let description = inputs[3].value
+            let id = ""
+            let image = url.split(",")[1]
+            console.log(name, shortDescription, description, id)
+            let response = await fetch('https://character-database.becode.xyz/characters', {
+            method:"POST", 
+            headers:{"Content-Type":"application/json"}, 
+            body:JSON.stringify({description, shortDescription, id, name, image})
+        });
+        } catch(error) {
+            console.log(error)
+        }
+    });
+
+    document.getElementById("btn-delete").addEventListener("click", () => {
+            inputs[0].value = ""
+            inputs[1].value = ""
+            inputs[2].value = ""
+            inputs[3].value = ""
+            let preview = document.getElementById('preview');
+            preview.src=""
+    });
+
     modalClose.addEventListener('click', ()=>{
-        modalsContainer.classList.add('hidden');
+        modalsContainer.classList.add('hidden'); // bouton qui ferme, au clique + class hiden
     })
 })
+

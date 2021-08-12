@@ -17,13 +17,16 @@
 
 .modal-addChar {
     position:absolute;
-    top: 30vh;
+    top: 20vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: $contrast-color;
     padding: 1rem;
+        img {
+            width: 150px;
+        }
         form{
             width: 100%;
             
