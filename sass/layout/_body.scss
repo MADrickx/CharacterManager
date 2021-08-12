@@ -4,4 +4,6 @@ body{
     width: 100%;
     background: rgb(75,78,162);
     background: linear-gradient(90deg, rgba(75,78,162,1) 0%, rgba(225,68,68,1) 100%); 
+    position: relative;
+    overflow-x:hidden;
 }

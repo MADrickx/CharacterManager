@@ -12,26 +12,20 @@
     <title>Character manager</title>
 </head>
 <body>
-    <header class="l-header">
-        <div class="l-header-heading">
-            <div class="l-header-heading-content">
-                <h1>Character Manager</h1>
-            </div>
-            <div class="l-header-search">
-                <form action="#" method="get">
-                    <label for="search">search Character</label>
-                    <input type="search" name="search" id="search" placeholder="search here" value=''>
-                </form>
-            </div>
-        </div>
-    </header>
-    <main class='l-main'>
-        <section class="c-main-modals">
+    <div id='modal-container' class="c-main-modals hidden">
+        <div class="c-main-modals-bcg">
             <div class="c-main-modals-container">
                 <div class="modal-addChar">
+                    <div class="modal-close">
+                        <div id="addChar-close" class="container__close">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
                     <figure>
-                        <img src="#" alt="preview">
-                        <button>Upload Image</button>
+                        <img id="preview" src="#" alt="preview">
+                        <label for="image">Upload Image</label>
+                        <input id="image" name ="image" type="file" accept=".png, .jpg, .jpeg">
                     </figure>
                     <form action="#" method="GET">
                         <div class="form-inputs">
@@ -67,97 +61,44 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+    <header class="l-header">
+        <div class="l-header-heading">
+            <div class="l-header-heading-content">
+                <h1>Character Manager</h1>
+            </div>
+            <div class="l-header-search">
+                <form action="#" method="get">
+                    <label for="search">search Character</label>
+                    <input type="search" name="search" id="search" placeholder="search here" value=''>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class='l-main'>
         <section class="c-main-cards">
-            <div class="c-main-cards-container">
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
+            <div id='card__target' class="c-main-cards-container">
+                <template id="tpl-char">
+                    <div class="c-main-cards__card">
+                        <div class="card__container">
+                            <img class='card__img' src="#" alt="img">
+                            <h1 class='card__name'>nom</h1>
+                            <p class='card__longDesc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
+                            <div>
+                                <a href="#" class="btn-link">See Character</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="c-main-cards__card">
-                    <div class="card__container">
-                        <img src="#" alt="img">
-                        <h1>nom</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
-                        <div>
-                            <a href="#" class="btn-link">See Character</a>
-                        </div>
-                    </div>
-                </div>
+                </template>
             </div>
         </section>
     </main>
     <footer class='l-footer'>
         <div class="l-footer-button">
             <a id="addChar" href="#" class="btn-add">Add a new character to the collection</a>
-            <a href="#" class="btn-add">Add a new character to the collection</a>
         </div>
     </footer>
+    <script src='js/main.js'></script>
 </body>
 </html>
