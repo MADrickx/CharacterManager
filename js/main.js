@@ -67,7 +67,7 @@ document.getElementById("addChar").addEventListener("click",async() => {
             inputs[2].value = ""
             inputs[3].value = ""
             let preview = document.getElementById('preview');
-            preview.src=""
+            preview.src="a"
     });
 
     modalClose.addEventListener('click', ()=>{
