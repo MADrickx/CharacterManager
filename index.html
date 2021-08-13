@@ -15,7 +15,7 @@
     <div id='modal-container' class="c-main-modals hidden">
         <div class="c-main-modals-bcg">
             <div class="c-main-modals-container">
-                <div class="modal-addChar">
+                <div id="modal-addChar" class="modal-addChar hidden">
                     <div class="modal-close">
                         <div id="addChar-close" class="container__close">
                             <span></span>
@@ -60,6 +60,24 @@
                         </div>
                     </form>
                 </div>
+                <div id="modal-modChar" class="modal-modChar hidden">
+                    <div class="modal-close">
+                        <div id="modChar-close" class="container__close">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <figure>
+                        <img id="mod-image" src="#" alt="preview">
+                    </figure>
+                        <p id="mod-name"></p>
+                        <p id="mod-shortDescription" class="shortDescription"></p>
+                        <P id="mod-description"></P>
+                    <div class="btn-mod-container">
+                        <button id="btn-mod">Update character</button>
+                        <button id="btn-mod-delete">Delete character</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -86,7 +104,7 @@
                             <h1 class='card__name'>nom</h1>
                             <p class='card__longDesc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
                             <div>
-                                <a href="#" class="btn-link">See Character</a>
+                                <button class="btn-link btn-modChar">See Character</button>
                             </div>
                         </div>
                     </div>
