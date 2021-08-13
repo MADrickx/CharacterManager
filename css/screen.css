@@ -85,7 +85,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .c-main-cards {
@@ -267,6 +267,48 @@ body {
 .container__close span:nth-of-type(2) {
   transform-origin: center;
   transform: rotate(-45deg);
+}
+
+.modal-modChar {
+  position: absolute;
+  top: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #363333;
+  padding: 1rem;
+}
+.modal-modChar figure {
+  display: flex;
+  justify-content: center;
+}
+.modal-modChar .btn-mod-container {
+  display: flex;
+  justify-content: center;
+}
+.modal-modChar img {
+  width: 150px;
+  border-radius: 100%;
+}
+.modal-modChar #mod-shortDescription {
+  color: gray;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.modal-modChar #mod-name {
+  font-size: 3rem;
+  font-family: "Permanent Marker", sans-serif;
+  color: white;
+  text-align: center;
+}
+.modal-modChar #mod-description {
+  color: white;
+  font-size: 1rem;
+  text-align: justify;
+  font-family: "Roboto", sans-serif;
 }
 
 /*# sourceMappingURL=screen.css.map */
