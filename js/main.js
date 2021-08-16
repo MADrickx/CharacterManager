@@ -35,7 +35,8 @@ window.onload = async function getChar() {
 				let templateClone = template.content.cloneNode(true);
 				templateClone.querySelector(".card__name").innerHTML = name;
 				templateClone.querySelector(".card__img").src = `data:image/png;base64, ${image}`;
-				templateClone.querySelector(".card__longDesc").innerHTML = shortDescription;
+				templateClone.querySelector(".card__desc").innerHTML = description;
+				templateClone.querySelector(".card__shortDesc").innerHTML = shortDescription;
 	
 				target.append(templateClone);
 			})
@@ -60,7 +61,8 @@ window.onload = async function getChar() {
 			let templateClone = template.content.cloneNode(true);
 			templateClone.querySelector(".card__name").innerHTML = name;
 			templateClone.querySelector(".card__img").src = `data:image/png;base64, ${image}`;
-			templateClone.querySelector(".card__longDesc").innerHTML = description;
+			templateClone.querySelector(".card__desc").innerHTML = description;
+			templateClone.querySelector(".card__shortDesc").innerHTML = shortDescription;
 			
 			target.append(templateClone);
 		})
