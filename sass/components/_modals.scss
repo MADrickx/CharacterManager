@@ -161,3 +161,22 @@
 
 
 }
+.description-container{
+    position: relative;
+}
+.descriptions-btn-container{
+    background-color: lightgray;
+    padding: 0.5rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 0.5rem;
+    width: 98.8%;
+    span{
+        padding-right:0.5rem;
+        cursor: pointer;
+        color: grey;
+    }
+    .active{
+        color:black;
+    }
+}

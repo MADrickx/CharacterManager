@@ -116,6 +116,7 @@ body {
   font-size: 1rem;
   padding: 0;
   margin: 0;
+  white-space: wrap;
 }
 .c-main-cards__card p {
   color: lightgrey;
@@ -309,6 +310,27 @@ body {
   font-size: 1rem;
   text-align: justify;
   font-family: "Roboto", sans-serif;
+}
+
+.description-container {
+  position: relative;
+}
+
+.descriptions-btn-container {
+  background-color: lightgray;
+  padding: 0.5rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 0.5rem;
+  width: 98.8%;
+}
+.descriptions-btn-container span {
+  padding-right: 0.5rem;
+  cursor: pointer;
+  color: grey;
+}
+.descriptions-btn-container .active {
+  color: black;
 }
 
 /*# sourceMappingURL=screen.css.map */
