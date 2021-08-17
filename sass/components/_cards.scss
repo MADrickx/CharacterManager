@@ -76,8 +76,16 @@
 @media screen and (min-width:960px){
     .c-main-cards-container{
         max-width: 1400px;
+        justify-content: space-between;
+        flex-wrap: wrap;
         .c-main-cards__card{
             margin:1rem 2rem;
+            &:nth-of-type(4n){
+                margin-right: 0;
+            }
+            &:nth-of-type(4n+1){
+                margin-left: 0;
+            }
         }
     }
 }
