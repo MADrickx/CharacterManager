@@ -50,6 +50,7 @@ window.onload = async function getChar() {
 			return element.name.toLowerCase().includes(searchWord.value.toLowerCase())
 		});
 		console.log(filteredChar)
+		getNumberOfElementAndCenter(filteredChar);
 		target.innerHTML = "";
 		filteredChar.forEach(({
 			description,
@@ -292,3 +293,12 @@ const countChar = (id,maxChar,pos) =>{
 	})
 }
 
+const getNumberOfElementAndCenter = (arr) => {
+	this.arr = arr;
+	length = arr.length
+	if(length<4){
+		target.style.justifyContent = 'center';
+	} else {
+		target.style.justifyContent = 'space-between';
+	}
+}
