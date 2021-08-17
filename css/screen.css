@@ -13,18 +13,59 @@ body {
   overflow-x: hidden;
 }
 
-.btn-link:link, .l-footer-button .btn-add:link, .btn-link:visited, .l-footer-button .btn-add:visited, .btn-link:focus, .l-footer-button .btn-add:focus {
+.btn-link:link, .btn-add:link, .btn-link:visited, .btn-add:visited, .btn-link:focus, .btn-add:focus {
   border: 1px solid white;
-  border-radius: 15px;
+  border-radius: 5px;
   color: white;
-  padding: 0.5rem;
   font-size: 0.8rem;
   text-decoration: none;
   font-style: italic;
 }
-.btn-link:hover, .l-footer-button .btn-add:hover {
+.btn-link:hover, .btn-add:hover {
   background-color: white;
   color: #4B4EA2;
+}
+
+.btn-modChar, #btn-mod-delete, #btn-mod {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  margin: 0.5rem;
+}
+
+#btn-mod {
+  background-color: transparent;
+  border: 1px solid #4B7CFB;
+  color: #4B7CFB;
+}
+#btn-mod:hover {
+  background-color: #4B7CFB;
+  color: white;
+}
+
+#btn-mod-delete {
+  background-color: transparent;
+  border: 1px solid #BF3A30;
+  color: #BF3A30;
+}
+#btn-mod-delete:hover {
+  background-color: #BF3A30;
+  color: white;
+}
+
+.btn-add {
+  margin: auto;
+  display: inline-block;
+}
+.btn-add:link, .btn-add:visited, .btn-add:focus {
+  background-color: #4B7CFB;
+  border: none;
+  font-size: 1.2rem;
+  font-style: normal;
+  padding: 1rem 3rem;
+  text-align: center;
+  box-shadow: 7px 11px 35px 2px rgba(0, 0, 0, 0.93);
 }
 
 .l-header {
@@ -63,27 +104,39 @@ body {
   }
 }
 .l-footer {
-  width: 100%;
-  margin: 3rem 0;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .l-footer-button {
-  text-align: center;
+  position: sticky;
+  width: 100px;
 }
-.l-footer-button .btn-add {
-  margin: auto;
-  display: inline-block;
+.l-footer-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  padding: 1rem;
+  margin: 1.5rem;
 }
-.l-footer-button .btn-add:link, .l-footer-button .btn-add:visited, .l-footer-button .btn-add:focus {
-  background-color: #4B7CFB;
-  border: none;
-  font-size: 1.2rem;
-  font-style: normal;
-  padding: 1rem 3rem;
-  text-align: center;
-  box-shadow: 7px 11px 35px 2px rgba(0, 0, 0, 0.93);
+.l-footer-button a .other-btn-add {
+  display: none;
 }
 
+@media screen and (min-width: 768px) {
+  .l-footer {
+    width: 100%;
+    margin: 3rem 0;
+  }
+
+  .l-footer-button {
+    text-align: center;
+  }
+}
 .hidden {
   display: none !important;
 }
@@ -116,19 +169,31 @@ body {
   font-size: 1rem;
   padding: 0;
   margin: 0;
+  word-wrap: break-word;
 }
 .c-main-cards__card p {
   color: lightgrey;
   font-size: 0.8rem;
   font-weight: 200;
-  height: 100px;
   overflow-y: scroll;
+  word-wrap: break-word;
 }
 .c-main-cards__card img {
   border-radius: 100%;
   width: 100px;
   height: auto;
   align-self: center;
+}
+.c-main-cards__card .card__shortDesc {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: grey;
+  margin: 0;
+  height: 2rem;
+}
+.c-main-cards__card .card__desc {
+  margin: 0 0 0.5rem 0;
+  max-height: 200px;
 }
 
 .card__container {
@@ -176,13 +241,15 @@ body {
 
 .modal-addChar {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #363333;
   padding: 1rem;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 .modal-addChar img {
   width: 150px;
@@ -271,13 +338,14 @@ body {
 
 .modal-modChar {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #363333;
   padding: 1rem;
+  border-radius: 15px;
 }
 .modal-modChar figure {
   display: flex;
@@ -309,6 +377,39 @@ body {
   font-size: 1rem;
   text-align: justify;
   font-family: "Roboto", sans-serif;
+}
+.modal-modChar p {
+  margin: 0.5rem;
+}
+
+.description-container {
+  position: relative;
+}
+
+.descriptions-btn-container {
+  background-color: lightgray;
+  padding: 0.5rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 0.5rem;
+  width: 98.8%;
+}
+.descriptions-btn-container span {
+  padding-right: 0.5rem;
+  cursor: pointer;
+  color: grey;
+}
+.descriptions-btn-container .active {
+  color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-modChar {
+    max-width: 1400px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 1rem;
+  }
 }
 
 /*# sourceMappingURL=screen.css.map */

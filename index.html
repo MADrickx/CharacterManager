@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
@@ -42,14 +43,15 @@
                                 <span class="input-char-count"></span>
                                 <div>
                                     <div class="descriptions-btn-container">
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
-                                        <span class="description-btn"></span>
+                                        <span id='btn-bold' class="description-btn"><i class="fas fa-bold"></i></span>
+                                        <span id='btn-italic' class="description-btn"><i class="fas fa-italic"></i></span>
+                                        <span id='btn-strike' class="description-btn"><i class="fas fa-strikethrough"></i></span>
+                                        <span id='btn-ul' class="description-btn"><i class="fas fa-list"></i></span>
+                                        <span id='btn-ol' class="description-btn"><i class="fas fa-list-ol"></i></span>
+                                        <span id='btn-ul' class="description-btn"><i class="fas fa-quote-left"></i></span>
+                                        <span class="description-align-btn"><i class="fas fa-align-left"></i></span>
+                                        <span class="description-align-btn"><i class="fas fa-align-center"></i></span>
+                                        <span class="description-align-btn"><i class="fas fa-align-right"></i></span>
                                     </div>
                                 </div>  
                             </div>
@@ -87,7 +89,7 @@
                 <h1>Character Manager</h1>
             </div>
             <div class="l-header-search">
-                <form action="#" method="get">
+                <form action="#" method="get" id='search-form'>
                     <label for="search">search Character</label>
                     <input type="search" name="search" id="search" placeholder="search here" value=''>
                 </form>
@@ -102,7 +104,8 @@
                         <div class="card__container">
                             <img class='card__img' src="#" alt="img">
                             <h1 class='card__name'>nom</h1>
-                            <p class='card__longDesc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
+                            <p class='card__shortDesc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
+                            <p class='card__desc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, alias. Pariatur nesciunt nobis molestias! Dolorem modi possimus tempore soluta pariatur.</p>
                             <div>
                                 <button class="btn-link btn-modChar">See Character</button>
                             </div>
@@ -114,7 +117,7 @@
     </main>
     <footer class='l-footer'>
         <div class="l-footer-button">
-            <a id="addChar" href="#" class="btn-add">Add a new character to the collection</a>
+            <a id="addChar" href="#" class="btn-add"><span class="mobile-btn-add">+</span><span class="other-btn-add">Add a new character to the collection</span> </a>
         </div>
     </footer>
     <script src='js/main.js'></script>

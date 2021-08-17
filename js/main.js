@@ -3,7 +3,9 @@ const modalClose = document.getElementById('addChar-close');
 const modalModClose = document.getElementById("modChar-close");
 const template = document.getElementById("tpl-char");
 const target = document.getElementById('card__target');
+let searchWord = document.getElementById('search');
 var url = "";
+
 const readURL = file => {
 	return new Promise((res, rej) => {
 		const reader = new FileReader();
@@ -13,12 +15,43 @@ const readURL = file => {
 	});
 };
 
-window.onload = async function getChar() {
-	let response = await fetch('https://character-database.becode.xyz/characters');
-	let chars = await response.json(); //tableau objects
+document.getElementById('search-form').addEventListener('submit',(ev)=>{
+	ev.preventDefault()
+})
 
+window.onload = async function getChar() {
+	let chars ='';
 	try {
-		chars.forEach(({
+		let response = await fetch('https://character-database.becode.xyz/characters');
+		chars = await response.json(); //tableau objects
+		if (searchWord.value == ""){
+			chars.forEach(({
+				description,
+				shortDescription,
+				id,
+				name,
+				image
+			}) => {
+				let templateClone = template.content.cloneNode(true);
+				templateClone.querySelector(".card__name").innerHTML = name;
+				templateClone.querySelector(".card__img").src = `data:image/png;base64, ${image}`;
+				templateClone.querySelector(".card__desc").innerHTML = description;
+				templateClone.querySelector(".card__shortDesc").innerHTML = shortDescription;
+	
+				target.append(templateClone);
+			})
+		} 
+	} catch(error) {
+		console.log(error)
+	}
+	searchWord.addEventListener('input', async ()=>{
+		let filteredChar = chars.filter(element => {
+			console.log(element.name.toLowerCase().includes(searchWord.value.toLowerCase()))
+			return element.name.toLowerCase().includes(searchWord.value.toLowerCase())
+		});
+		console.log(filteredChar)
+		target.innerHTML = "";
+		filteredChar.forEach(({
 			description,
 			shortDescription,
 			id,
@@ -26,19 +59,17 @@ window.onload = async function getChar() {
 			image
 		}) => {
 			let templateClone = template.content.cloneNode(true);
-			templateClone.querySelector(".card__name").innerText = name;
+			templateClone.querySelector(".card__name").innerHTML = name;
 			templateClone.querySelector(".card__img").src = `data:image/png;base64, ${image}`;
-			templateClone.querySelector(".card__longDesc").innerText = description;
-
+			templateClone.querySelector(".card__desc").innerHTML = description;
+			templateClone.querySelector(".card__shortDesc").innerHTML = shortDescription;
+			
 			target.append(templateClone);
 		})
-	} catch (error) {
-		console.log(error)
-	}
+	})
 	async function getCardsLink() {
 		const btnsModChar = await document.getElementsByClassName('btn-modChar');
 		const arrBtnsModChar = await Array.from(btnsModChar);
-		console.log(arrBtnsModChar)
 
 		for (let i = 0; i < arrBtnsModChar.length; i++) {
 			arrBtnsModChar[i].addEventListener('click', async () => {
@@ -48,11 +79,11 @@ window.onload = async function getChar() {
 				let response = await fetch('https://character-database.becode.xyz/characters');
 				let chars = await response.json(); //tableau objects
 				document.getElementById('mod-image').src = `data:image/png;base64, ${chars[i].image}`;
-				document.getElementById('mod-name').innerText = chars[i].name;
-				document.getElementById('mod-shortDescription').innerText = chars[i].shortDescription;
-				document.getElementById('mod-description').innerText = chars[i].description;
-
+				document.getElementById('mod-name').innerHTML = chars[i].name;
+				document.getElementById('mod-shortDescription').innerHTML = chars[i].shortDescription;
+				document.getElementById('mod-description').innerHTML = chars[i].description;
 				document.getElementById('btn-mod').addEventListener('click', async () => {
+					typeManagement();
 					let inputs = Array.from(document.getElementsByTagName("input"))
 					document.getElementById('modal-modChar').classList.add('hidden');
 					inputs[0].value = "";
@@ -60,11 +91,13 @@ window.onload = async function getChar() {
 					inputs[1].value = chars[i].name;
 					inputs[2].value = chars[i].shortDescription;
 					inputs[3].value = chars[i].description;
+
 					const newImage = await inputs[0].addEventListener("change", async (ev) => {
 						const file = ev.target.files[0];
 						url = await readURL(file);
 						preview.src = url;
 					});
+
 					document.getElementById('modal-addChar').classList.remove('hidden');
 					document.getElementById("btn-save").addEventListener("click", async () => {
 						try {
@@ -77,7 +110,6 @@ window.onload = async function getChar() {
 							if (!(image == preview)) {
 								image = await preview.split(",")[1];
 								console.log(image, preview)
-								alert('pas coucou');
 								let modCharWithImage = await fetch(`https://character-database.becode.xyz/characters/${chars[i].id}`, {
 									method: "PUT",
 									headers: {
@@ -91,7 +123,6 @@ window.onload = async function getChar() {
 										image
 									})
 								});
-								console.log(modCharWithImage)
 							}
 						} catch (error) {
 							console.log(error)
@@ -109,7 +140,6 @@ window.onload = async function getChar() {
                             "Content-Type": "application/json"
                         },
                     });
-                    console.log(deletedChar)
                 })
 				modalModClose.addEventListener('click', () => {
 					modalsContainer.classList.add('hidden'); // bouton qui ferme, au clique + class hiden
@@ -137,13 +167,11 @@ document.getElementById("addChar").addEventListener("click", async () => {
 	})
 	document.getElementById("btn-save").addEventListener("click", async () => {
 		try {
-			alert('coucou');
 			let name = inputs[1].value;
 			let shortDescription = inputs[2].value;
 			let description = inputs[3].value;
 			let id = "";
 			let image = url.split(",")[1];
-			console.log(name, shortDescription, description, id);
 			let response = await fetch('https://character-database.becode.xyz/characters', {
 				method: "POST",
 				headers: {
@@ -176,3 +204,54 @@ document.getElementById("addChar").addEventListener("click", async () => {
 		document.getElementById("modal-addChar").classList.add('hidden');
 	})
 })
+
+const typeManagement = () =>{
+	const arrayOfbuttons = document.querySelectorAll('.description-btn');
+	for (let i=0;i<arrayOfbuttons.length;i++){
+		arrayOfbuttons[i].addEventListener('click',()=>{
+		if (arrayOfbuttons[i].id == 'btn-bold'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<strong>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</strong>';
+			}
+		} else if (arrayOfbuttons[i].id == 'btn-italic'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<em>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</em>';
+			}
+		} else if (arrayOfbuttons[i].id == 'btn-strike'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<strike>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</strike>';
+			}
+		} else if (arrayOfbuttons[i].id == 'btn-ul'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<ul><li>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</li></ul>';
+			}
+		} else if (arrayOfbuttons[i].id == 'btn-ol'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<ol><li>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</li></ol>';
+			}
+		} else if (arrayOfbuttons[i].id == 'btn-quote'){
+			arrayOfbuttons[i].classList.toggle('active');
+			if(arrayOfbuttons[i].matches('.active')){
+				document.getElementById('description').value = document.getElementById('description').value + '<q>';
+			} else {
+				document.getElementById('description').value = document.getElementById('description').value + '</q>';
+			}
+		}
+		})
+	}
+}

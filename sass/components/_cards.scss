@@ -27,19 +27,32 @@
         font-size: 1rem;
         padding: 0;
         margin: 0;
+        word-wrap: break-word;
     }
     p{
         color: lightgrey;
         font-size: 0.8rem;
         font-weight: 200;
-        height: 100px;
         overflow-y: scroll;
+        word-wrap: break-word;
+        
     }
     img{
         border-radius: 100%;
         width: 100px;
         height: auto;
         align-self: center;
+    }
+    .card__shortDesc{
+        font-size: 0.8rem;
+        font-weight: 200;
+        color: grey;
+        margin: 0;
+        height: 2rem;
+    }
+    .card__desc{
+        margin: 0 0 0.5rem 0;
+        max-height: 200px;
     }
 }
 

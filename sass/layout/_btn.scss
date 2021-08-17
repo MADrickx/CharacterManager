@@ -1,9 +1,8 @@
 .btn-link{
     &:link,&:visited,&:focus{
         border: 1px solid white;
-        border-radius: 15px;
+        border-radius: 5px;
         color: white;
-        padding: 0.5rem;
         font-size: 0.8rem;
         text-decoration: none;
         font-style: italic;
@@ -11,5 +10,50 @@
     &:hover{
         background-color: white;
         color:$main-color;
+    }
+}
+
+.btn-modChar{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin: 0.5rem
+}
+
+#btn-mod{
+    @extend .btn-modChar;
+    background-color: transparent;
+    border: 1px solid $btn-color-1;
+    color: $btn-color-1;
+    &:hover{
+        background-color: $btn-color-1;
+        color: white
+    }
+}
+
+#btn-mod-delete{
+    @extend .btn-modChar;
+    background-color: transparent;
+    border: 1px solid $btn-color-2;
+    color: $btn-color-2;
+    &:hover{
+        background-color: $btn-color-2;
+        color:white;
+    }
+}
+
+.btn-add{
+    margin: auto;
+    display: inline-block;
+    @extend .btn-link;
+    &:link,&:visited,&:focus{
+        background-color: $btn-color-1;
+        border: none;
+        font-size: 1.2rem;
+        font-style: normal;
+        padding: 1rem 3rem;
+        text-align: center;
+        box-shadow: 7px 11px 35px 2px rgba(0,0,0,0.93);
     }
 }
