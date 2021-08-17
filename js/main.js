@@ -37,14 +37,13 @@ window.onload = async function getChar() {
 				templateClone.querySelector(".card__img").src = `data:image/png;base64, ${image}`;
 				templateClone.querySelector(".card__desc").innerHTML = description;
 				templateClone.querySelector(".card__shortDesc").innerHTML = shortDescription;
-	
 				target.append(templateClone);
 			})
 		} 
 	} catch(error) {
 		console.log(error)
 	}
-	searchWord.addEventListener('input', async ()=>{
+	searchWord.addEventListener('input', async () =>{
 		let filteredChar = chars.filter(element => {
 			console.log(element.name.toLowerCase().includes(searchWord.value.toLowerCase()))
 			return element.name.toLowerCase().includes(searchWord.value.toLowerCase())
@@ -91,7 +90,6 @@ window.onload = async function getChar() {
 					inputs[1].value = chars[i].name;
 					inputs[2].value = chars[i].shortDescription;
 					inputs[3].value = chars[i].description;
-
 					const newImage = await inputs[0].addEventListener("change", async (ev) => {
 						const file = ev.target.files[0];
 						url = await readURL(file);

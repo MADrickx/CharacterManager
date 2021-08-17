@@ -244,6 +244,9 @@ body {
   .c-main-cards-container .c-main-cards__card:nth-of-type(4n+1) {
     margin-left: 0;
   }
+  .c-main-cards-container .c-main-cards__card:last-of-type {
+    margin: 1rem 0;
+  }
 }
 .c-main-modals {
   position: sticky;
