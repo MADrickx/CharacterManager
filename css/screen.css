@@ -94,6 +94,7 @@ body {
   margin: 1rem;
   padding: 0.5rem;
   border: none;
+  margin-right: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -115,15 +116,15 @@ body {
   position: sticky;
   width: 100px;
 }
-.l-footer-button a {
+.l-footer-button a.btn-link, .l-footer-button a.btn-add {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  padding: 1rem;
+  padding: 1rem 1.8rem;
   margin: 1.5rem;
 }
-.l-footer-button a .other-btn-add {
+.l-footer-button a.btn-link .other-btn-add, .l-footer-button a.btn-add .other-btn-add {
   display: none;
 }
 
@@ -131,10 +132,25 @@ body {
   .l-footer {
     width: 100%;
     margin: 3rem 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .l-footer-button {
     text-align: center;
+    position: relative;
+    width: 50%;
+  }
+  .l-footer-button a.btn-link, .l-footer-button a.btn-add {
+    border-radius: 8px;
+  }
+  .l-footer-button a.btn-link .other-btn-add, .l-footer-button a.btn-add .other-btn-add {
+    display: block;
+  }
+  .l-footer-button a.btn-link .mobile-btn-add, .l-footer-button a.btn-add .mobile-btn-add {
+    display: none;
   }
 }
 .hidden {
@@ -215,9 +231,17 @@ body {
 @media screen and (min-width: 960px) {
   .c-main-cards-container {
     max-width: 1400px;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
   .c-main-cards-container .c-main-cards__card {
     margin: 1rem 2rem;
+  }
+  .c-main-cards-container .c-main-cards__card:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  .c-main-cards-container .c-main-cards__card:nth-of-type(4n+1) {
+    margin-left: 0;
   }
 }
 .c-main-modals {
@@ -256,6 +280,9 @@ body {
 }
 .modal-addChar form {
   width: 100%;
+}
+.modal-addChar form span {
+  font-size: 0.6rem;
 }
 .modal-addChar form input {
   width: 100%;

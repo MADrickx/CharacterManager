@@ -9,7 +9,7 @@
 .l-footer-button{
     position: sticky;
     width:100px;
-    a{
+    a.btn-link{
         .other-btn-add{
             display: none;
         }
@@ -17,7 +17,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 100%;
-        padding: 1rem;
+        padding: 1rem 1.8rem;
         margin: 1.5rem;
     }
 }
@@ -25,9 +25,24 @@
     .l-footer{
         width: 100%;
         margin: 3rem 0;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
     }
     
     .l-footer-button{
         text-align: center;
+        position: relative;
+        width: 50%;
+        a.btn-link{
+            border-radius: 8px;
+            .other-btn-add{
+                display: block;
+            }
+            .mobile-btn-add{
+                display: none;
+            }
+        }
     }
 }

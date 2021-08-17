@@ -70,7 +70,6 @@ window.onload = async function getChar() {
 	async function getCardsLink() {
 		const btnsModChar = await document.getElementsByClassName('btn-modChar');
 		const arrBtnsModChar = await Array.from(btnsModChar);
-
 		for (let i = 0; i < arrBtnsModChar.length; i++) {
 			arrBtnsModChar[i].addEventListener('click', async () => {
 				document.getElementById('modal-modChar').classList.remove('hidden');
@@ -99,6 +98,9 @@ window.onload = async function getChar() {
 					});
 
 					document.getElementById('modal-addChar').classList.remove('hidden');
+					countChar('name',20,0);
+					countChar('origin',70,1)
+					countChar('description',350,2)
 					document.getElementById("btn-save").addEventListener("click", async () => {
 						try {
 							let name = inputs[1].value;
@@ -107,9 +109,8 @@ window.onload = async function getChar() {
 							let id = '';
 							let image = chars[i].image;
 							let preview = document.getElementById('preview').src;
-							if (!(image == preview)) {
-								image = await preview.split(",")[1];
-								console.log(image, preview)
+							if (image =! preview) {
+								console.log(image, preview.split(",")[1])
 								let modCharWithImage = await fetch(`https://character-database.becode.xyz/characters/${chars[i].id}`, {
 									method: "PUT",
 									headers: {
@@ -123,6 +124,21 @@ window.onload = async function getChar() {
 										image
 									})
 								});
+							} else {
+								image = preview.split(",")[1];
+								let modCharWithImage = await fetch(`https://character-database.becode.xyz/characters/${chars[i].id}`, {
+									method: "PUT",
+									headers: {
+										"Content-Type": "application/json"
+									},
+									body: JSON.stringify({
+										description,
+										shortDescription,
+										id,
+										name,
+										image
+									})
+								})
 							}
 						} catch (error) {
 							console.log(error)
@@ -157,6 +173,7 @@ window.onload = async function getChar() {
 document.getElementById("addChar").addEventListener("click", async () => {
 	modalsContainer.classList.remove('hidden');
 	document.getElementById("modal-addChar").classList.remove('hidden');
+	typeManagement();
 	let img = document.getElementById('image');
 	let preview = document.getElementById('preview');
 	let inputs = Array.from(document.getElementsByTagName("input"));
@@ -255,3 +272,23 @@ const typeManagement = () =>{
 		})
 	}
 }
+
+const countChar = (id,maxChar,pos) =>{
+	this.id = id;
+	this.maxChar = maxChar;
+	this.pos = pos;
+	let inputCount = document.getElementById(`${id}`);
+	let inputLength = inputCount.value.length;
+	console.log(inputLength,inputCount)
+	let targetS = document.querySelectorAll('.input-char-count');
+	targetS[pos].innerHTML = `${inputLength} on max ${maxChar} char.`
+	inputCount.addEventListener('input', () => {
+		let inputCount = document.getElementById(`${id}`);
+		let inputLength = inputCount.value.length;
+		inputCount.maxLength = maxChar;
+		console.log(inputLength,inputCount)
+		let targetS = document.querySelectorAll('.input-char-count');
+		targetS[pos].innerHTML = `${inputLength} on max ${maxChar} char.`
+	})
+}
+
