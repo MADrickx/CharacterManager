@@ -158,6 +158,10 @@ body {
   display: none !important;
 }
 
+strong {
+  text-transform: uppercase;
+}
+
 .c-main-cards {
   width: 100%;
 }
@@ -443,6 +447,20 @@ body {
 }
 .descriptions-btn-container .active {
   color: black;
+}
+
+#description-div-visu {
+  width: 50%;
+  border-radius: 8px;
+  height: auto;
+  box-sizing: border-box;
+  padding: 1rem;
+  position: absolute;
+  top: -2rem;
+  left: 25%;
+  z-index: 100000;
+  background-color: #363333;
+  border: 1px solid white;
 }
 
 @media screen and (min-width: 768px) {

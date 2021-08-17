@@ -100,6 +100,7 @@ window.onload = async function getChar() {
 					countChar('name',20,0);
 					countChar('origin',70,1)
 					countChar('description',350,2)
+					getVisuOnTextDesc();
 					document.getElementById("btn-save").addEventListener("click", async () => {
 						try {
 							let name = inputs[1].value;
@@ -267,6 +268,8 @@ const typeManagement = () =>{
 			} else {
 				document.getElementById('description').value = document.getElementById('description').value + '</q>';
 			}
+		} else {
+			getVisuOnTextDesc();
 		}
 		})
 	}
@@ -299,4 +302,21 @@ const getNumberOfElementAndCenter = (arr) => {
 	} else {
 		target.style.justifyContent = 'space-between';
 	}
+}
+
+const getVisuOnTextDesc = () =>{
+	let button = document.getElementById('description-visu')
+	let target = document.getElementById('description-div-visu');
+	button.addEventListener('click', () => {
+		let inputValue = document.getElementById('description').value;
+		target.classList.toggle('hidden');
+		button.classList.toggle('active');
+		if (button.classList.contains('active')){
+			target.innerHTML = inputValue;
+			button.addEventListener('click', () => {
+				target.classList.toggle('hidden');
+				button.classList.toggle('active');
+			})
+		}
+	})
 }
